@@ -1,0 +1,70 @@
+
+:root {
+--link-color: #fff;
+--line-height: 1.2;
+--font-weight: 300;
+--h1-font-weight: 200;
+--h2-font-weight: 300;
+--h5-font-weight: 400;
+--h5-letter-spacing: 1px;
+--p-line-height: 1.5;
+--p-font-family: 'Raleway';
+--p-font-weight: 400;
+--p-letter-spacing: 0px;
+--label-color: #aaa;
+--label-margin-bottom: 8px;
+--form-margin-bottom: 15px;
+--form-background-color: rgba(255, 255, 255, 0);
+--form-border-color: #ddd;
+--gutter-compensation: -40px;
+--gutter-vertical: 1.85vh;
+--module-gutter-vertical: 1vh;
+--mobile-column-distance: 10px;
+--mobile-element-distance: 10px;
+--max-grid-ratio: 1.25;
+--language-switcher-border-color: #d4d4c9;
+--language-switcher-background-color: #fff;
+--region-switcher-border-color: #d4d4c9;
+--region-switcher-background-color: #fff;
+--region-switcher-popup-background-color: #fff;
+}
+.btn1 {
+--button-background-color-disabled: #e2e2e2;
+--button-min-width: 110px;
+--button-height: 45px;
+--button-font-size: 12px;
+--button-padding: 0px 40px 0px 40px;
+--button-border-width: 3px 3px 3px 3px;
+--button-color: #fff;
+--button-background-color: #353535;
+--button-border-color: rgba(27, 93, 149, 0);
+--button-border-radius: 0px 0px 0px 0px;
+}
+.btn1:hover {
+--button-color: #333;
+--button-background-color: rgba(81, 81, 81, 0);
+--button-border-color: #d44c3b;
+}
+.buttons1486712641043 {
+--button-font-family: 'Open Sans';
+--button-font-size: 12px;
+--button-font-weight: 400;
+--button-letter-spacing: 1px;
+--button-border-radius: 0px 0px 0px 0px;
+--button-border-width: 3px 3px 3px 3px;
+--button-border-style: solid;
+--button-height: 50px;
+--button-min-width: 170px;
+--button-padding: 0 50px;
+--button-background-color: rgba(212, 151, 59, 0);
+--button-border-color: #fff;
+--button-color: #fff;
+--button-line-height: 44px;
+--button-background-color-disabled: #e2e2e2;
+--button-color-disabled: #fff;
+}
+.buttons1486712641043:hover {
+--button-background-color: rgba(81, 81, 81, 0.19);
+--button-border-color: rgba(255, 255, 255, 0.35);
+--button-color: #fff;
+}
