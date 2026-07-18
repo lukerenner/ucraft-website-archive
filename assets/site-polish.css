@@ -1,0 +1,76 @@
+/* lukerenner.co polish layer — small, targeted fixes on top of the
+   original Ucraft styles. Loaded last so it wins ties. */
+
+/* 1. Primary nav: stay on one line at laptop widths.
+   The original 40px item gaps + 14px caps overflow the 9-column nav slot
+   below ~1560px and "SUCCESS STORIES" wraps onto a second row. */
+@media (min-width: 992px) and (max-width: 1560px) {
+  .ModuleNavigation .standard-view ul { flex-wrap: nowrap !important; white-space: nowrap; }
+  .ModuleNavigation .standard-view li { margin-right: 22px !important; }
+  .ModuleNavigation .standard-view li a { font-size: 13px !important; }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .ModuleNavigation .standard-view li { margin-right: 14px !important; }
+  .ModuleNavigation .standard-view li a { font-size: 12px !important; }
+}
+
+/* 2. Mobile header: the CONTACT button lives in a 2/12 column that pushes
+   ~150px past the right edge of the viewport (and drags a horizontal
+   scrollbar with it). Pin it inside the header instead. */
+@media (max-width: 991px) {
+  html, body { overflow-x: hidden; }
+  .headerRow { position: relative; }
+  .headerRow .column.col-xs-2 {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto !important;
+    max-width: none !important;
+    flex: none !important;
+    z-index: 5;
+  }
+  .headerRow .column.col-xs-2 .module-container {
+    padding: 0 !important;
+  }
+  .headerRow .ModuleButton a.btn {
+    font-size: 11px;
+    padding: 10px 16px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    white-space: nowrap;
+  }
+}
+
+/* 3. Mobile text rhythm: some modules carry lopsided inline padding
+   (e.g. the hero title has 40px right, 0 left, so text touches the screen
+   edge). Give every text/form module the same 22px gutters. */
+@media (max-width: 767px) {
+  .module-container.ModuleTitle,
+  .module-container.ModuleParagraph,
+  .module-container.ModuleForm {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+}
+
+/* 4. Mobile: long right-aligned pull quotes read poorly on a narrow
+   screen — set them left while keeping the desktop treatment. */
+@media (max-width: 767px) {
+  .module-container.align-right :is(h1, h2, h3, h4, h5, h6, p) {
+    text-align: left !important;
+  }
+}
+
+/* 5. Mobile: empty gutter columns stack into 150px+ bands of dead space
+   between sections. Collapse any column that holds no actual module. */
+@media (max-width: 767px) {
+  .row .column:not(:has(.module)) { display: none; }
+}
+
+/* 6. Contact form: transplanted from the live site — make sure the
+   controls inherit the site's type instead of browser defaults. */
+.ModuleForm input,
+.ModuleForm textarea {
+  font-family: inherit;
+}

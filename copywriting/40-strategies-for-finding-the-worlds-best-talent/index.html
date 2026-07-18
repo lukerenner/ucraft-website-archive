@@ -197,7 +197,15 @@
 </script>
 
 
-        <script src="/assets/static.ucraft.net/assets/jQueryForm/jquery.form.min_553e82f9.js"></script></head>
+        <script src="/assets/static.ucraft.net/assets/jQueryForm/jquery.form.min_553e82f9.js"></script>    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-DY3CZ00VFL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments) };
+        gtag('js', new Date());
+        gtag('config', 'G-DY3CZ00VFL');
+    </script>
+    <link rel="stylesheet" href="/assets/site-polish.css">
+</head>
 <body class="desktop  txlive ">
 
 
@@ -1369,7 +1377,99 @@
 
                             <div class="   module ModuleForm " datamodule-id="472" style="display:block;max-width:490px;">
 
-                                <div class="domain-message"><span>Due to security reasons this form element will be visible  when viewing this page via your custom domain only.</span></div>
+                                <form action="" data-module-id="472" id="form-module-472">
+        <div class="form-group">
+                                                                                            <div class="form-element" data-index="0">
+                                                        <div class="form-control">
+                                                                    <input name="Name"
+                                           value=""
+                                           attr-form-type="name"
+                                           placeholder="Fill in your name"
+                                           aria-label="Name"
+                                           type="text"
+                                           class="full
+									                                                   val-required
+                                                                                                                        "
+                                                                                                                           aria-required="true"
+                                           aria-invalid="true"
+                                                                                >
+                                                            </div>
+                        </div>
+                                                                                                    <div class="form-element" data-index="1">
+                                                        <div class="form-control">
+                                                                    <input name="Email"
+                                           value=""
+                                           attr-form-type="email"
+                                           placeholder="Email"
+                                           aria-label="Email"
+                                           type="text"
+                                           class="full
+									                                                   val-required
+                                                                                                                           val-email
+                                                                                "
+                                                                                   aria-invalid="true"
+                                                                                                                           aria-required="true"
+                                           aria-invalid="true"
+                                                                                >
+                                                            </div>
+                        </div>
+                                                                                                    <div class="form-element" data-index="2">
+                                                        <div class="form-control">
+                                                                    <textarea name="Message"
+                                              placeholder="Write a message"
+                                              class="full
+                                                                                              val-required
+                                              "
+                                              aria-label="Message"
+                                                                                              aria-required="true"
+                                                aria-invalid="true"
+                                                                                  ></textarea>
+                                                            </div>
+                        </div>
+                                                        </div>
+
+                    <div id='recaptcha' class="g-recaptcha"
+                 data-sitekey="6Le_W-AoAAAAAJsPzFpjoBVabZavvO3MDMJwQ8QO"
+                 data-callback="onUcraftFormSubmit"
+                 data-callback-error="onUcraftFormSubmitError"
+                 data-size="invisible"
+                 data-badge="inline">
+            </div>
+            <script>
+                window.hasCaptcha = true;
+            </script>
+        
+        <div class="form-group form-submit">
+            <a href="#"
+                                class="btn  btn1  moduleForm-submit" role="button">
+                <span class="btn-text"> Send </span>
+            </a>
+        </div>
+        <div class="thank-you-message-container hide">
+            <i class="uci-success" role="presentation">
+                <svg width="32" height="32" fill="currentColor" viewBox="0 0 32 32"  xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.2667 23.8799C13.4089 23.8799 12.5822 23.5375 11.9734 22.9287L6.17339 17.1242C4.90672 15.8576 4.90672 13.8087 6.17339 12.542C7.44006 11.2754 9.48889 11.2754 10.7556 12.542L14.2711 16.0576L21.2489 9.07988C22.5156 7.81322 24.5644 7.81322 25.8311 9.07988C27.0977 10.3465 27.0977 12.3954 25.8311 13.662L16.5599 22.9287C15.9511 23.5375 15.1287 23.8799 14.2666 23.8799H14.2667Z"
+                         />
+                </svg>
+            </i>
+            <p class="thank-you-message"></p>
+        </div>
+
+        <div class="error-message-container hide">
+            <i class="uci-alert" role="presentation">
+                <svg width="32" height="32" fill="currentColor" viewBox="0 0 32 32"  xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M18.1333 6.50098H13.8666C12.5866 6.50098 11.591 7.63881 11.7333 9.06098L12.4445 14.6076C12.5866 15.7455 13.4401 16.5988 14.5778 16.5988H17.4221C18.56 16.5988 19.4133 15.7455 19.5555 14.6076L20.2666 9.06098C20.409 7.63864 19.4133 6.50098 18.1333 6.50098V6.50098Z"
+                         />
+                    <path
+                        d="M17.9912 19.585H14.009C13.2978 19.585 12.5867 20.1538 12.5867 21.0071V23.8516C12.5867 24.5628 13.1555 25.2738 14.009 25.2738H17.9912C18.7023 25.2738 19.4135 24.705 19.4135 23.8516V21.0071C19.4135 20.1538 18.8447 19.585 17.9913 19.585H17.9912Z"
+                         />
+                </svg>
+            </i>
+            <p class="error-message"></p>
+        </div>
+    </form>
 
 <script>
     window.addEventListener('load', function() {
@@ -1645,4 +1745,5 @@
 
 
 
+    <script src="/assets/site-polish.js" defer></script>
 </body></html>
