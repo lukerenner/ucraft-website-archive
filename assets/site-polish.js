@@ -1,37 +1,40 @@
 /* Contact form handler. The original form posted to Ucraft's server,
-   which is gone — instead, "Send" opens the visitor's mail client with
-   the message pre-filled. Swap this for a service like Formspree if you
-   want true in-page submission. */
+   which is gone. The form now posts to FormSubmit (see the action + hidden
+   fields in the page markup), which emails luke@lukerenner.co and redirects
+   to /thanks.html — the same setup as the newer lukerenner.co site.
+   Ucraft's submit control is an <a> that its bundled JS hijacks for an AJAX
+   call to the dead backend, so we detach that and trigger a real POST. */
 (function () {
   function init() {
     document.querySelectorAll('form[id^="form-module"]').forEach(function (form) {
       var btn = form.querySelector('.moduleForm-submit');
       if (!btn) return;
-      // clone to shed any handlers Ucraft's bundled JS may have attached
+      // clone to shed any handlers Ucraft's bundled JS attached to the button
       var clean = btn.cloneNode(true);
       btn.parentNode.replaceChild(clean, btn);
 
-      function send(e) {
+      function submit(e) {
         e.preventDefault();
         if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-        var val = function (sel) {
-          var el = form.querySelector(sel);
-          return el ? el.value.trim() : "";
-        };
-        var name = val('[name="Name"]');
-        var email = val('[name="Email"]');
-        var msg = val('[name="Message"]');
-        var body = msg + "\n\n— " + (name || "Anonymous") + (email ? " <" + email + ">" : "");
-        var subject = "Website inquiry" + (name ? " from " + name : "");
-        window.location.href =
-          "mailto:luke.renner@gmail.com?subject=" +
-          encodeURIComponent(subject) +
-          "&body=" +
-          encodeURIComponent(body);
+        // basic required-field validation
+        var missing = null;
+        ["Name", "Email", "Message"].forEach(function (name) {
+          var el = form.querySelector('[name="' + name + '"]');
+          if (el && !el.value.trim() && !missing) missing = el;
+        });
+        if (missing) {
+          missing.focus();
+          missing.reportValidity && missing.reportValidity();
+          return;
+        }
+        // drop Ucraft's empty reCAPTCHA field so it doesn't clutter the email
+        var rc = form.querySelector('[name="g-recaptcha-response"]');
+        if (rc) rc.parentNode.removeChild(rc);
+        // native submit — bypasses Ucraft's submit-event AJAX entirely
+        form.submit();
       }
 
-      clean.addEventListener("click", send);
-      form.addEventListener("submit", send, true);
+      clean.addEventListener("click", submit);
     });
   }
   /* On phones, a few columns carry huge hard-coded top padding as inline
